@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+img {
+    width: 100%;
+    height: auto;
+}
+
+#toast-container > div {
+    opacity:1;
+}
+
+.toast-error { 
+    background-color: #BD362F 
+    !important; 
+} 
+.toast-success { 
+    background-color: #51A351 
+    !important; 
+}
+  

@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Cidades {
@@ -8,8 +9,9 @@ public class Cidades {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
     private String nome;
-    private String UF;
+
 
     public Cidades() {
     }
@@ -20,14 +22,6 @@ public class Cidades {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getUF() {
-        return UF;
-    }
-
-    public void setUF(String UF) {
-        this.UF = UF;
     }
 
     public Long getId() {

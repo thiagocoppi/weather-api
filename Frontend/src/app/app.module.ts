@@ -10,6 +10,10 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { CardComponent } from './card/card.component';
 import { FooterComponent } from './footer/footer.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { EmptyStateComponent } from './empty-state/empty-state.component';
+
 
 @NgModule({
   declarations: [
@@ -19,13 +23,16 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     ListagemComponent,
     CardComponent,
-    FooterComponent
+    FooterComponent,
+    EmptyStateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

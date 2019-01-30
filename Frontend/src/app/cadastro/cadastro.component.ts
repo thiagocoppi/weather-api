@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cidades } from './cadastro.model';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-cadastro',
@@ -13,7 +14,8 @@ export class CadastroComponent implements OnInit {
 
   constructor(private cadastroService: CadastroService,
               private formBuilder: FormBuilder,
-              private router: ActivatedRoute) { }
+              private router: ActivatedRoute,
+              private toastr: ToastrService) { }
 
   cadastroForm: FormGroup;
 
@@ -39,11 +41,16 @@ export class CadastroComponent implements OnInit {
     
     if (!id){ 
       this.cadastroService.salvarCidade(cidades).subscribe(res => {
+        this.toastr.success(`A cidade ${cidades.nome} foi cadastrada com sucesso !`, 'Cidade');
+      }, error => {
+        this.toastr.error(error.error.message, 'Cidade');
       });
     } else {
       cidades.id = id;
       this.cadastroService.editarCidade(cidades).subscribe(res => {
-
+        this.toastr.success(`A cidade ${cidades.nome} foi cadastrada com sucesso !`, 'Cidade');
+      }, error => {
+        this.toastr.error(error.error.message, 'Cidade');
       })
     }
   }

@@ -1,0 +1,47 @@
+
+<div class="col-md-8 offset-md-2">
+  <br/>
+  <table id="table" class="table table-striped table-bordered" style="height: 100px;width:100%">
+      <thead>
+          <tr>
+              <th>Título Tarefa</th>
+              <th>Editar</th>
+              <th>Remover</th>
+              <th>Previsão</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let cidade of listaCidades">
+              <td>{{cidade.nome}}</td>
+              <td class="text-center">
+                  <span>
+                      <button type="button" class="btn btn-success btn-rounded btn-md mx-auto d-block" [routerLink]="['/cadastrar', cidade.id]">
+                          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                      </button>
+                  </span>
+              </td>
+              <td>
+                  <span>
+                      <button type="button" class="btn btn-danger btn-rounded btn-md mx-auto d-block" (click)="removercidade(cidade.id)">
+                          <i class="fa fa-trash" aria-hidden="true"></i>
+                      </button>
+                  </span>
+              </td>
+              <td>
+                <span>
+                    <button type="button" class="btn btn-danger btn-rounded btn-md mx-auto d-block" [routerLink]="['/card', cidade.nome]">
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                    </button>
+                </span>
+            </td>
+          </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <th>Nome Cidade</th>
+              <th>Editar</th>
+              <th>Remover</th>
+              <th>Previsão</th>
+          </tr>
+      </tfoot>
+  </table>

@@ -1,0 +1,32 @@
+<section style="padding-top: 10px" class="content-header">
+  <h2>{{cardRet?.nomeCidade}}</h2>
+</section>
+<section style="padding-top: 10px" class="content">
+  <div class="row">
+
+    <div *ngFor="let prev of cardRet?.listaPrevisao; let i = index" class="col-md-3 col-sm-4">
+      <div class="wrimagecard wrimagecard-topimage">
+        <a href="#">
+          <h4 class="card-tittle"> Dia {{i + 1}} </h4>
+          <br />
+          <div class="wrimagecard-topimage_title">
+            <h6>Temperatura Min.
+              <div class="pull-right badge"><i class="fa fa-thermometer-empty"> {{prev.maxTemp}}°</i></div>
+            </h6>
+          </div>
+          <div class="wrimagecard-topimage_title">
+            <h6>Temperatura Max.
+              <div class="pull-right badge"><i class="fa fa-thermometer-full"> {{prev.minTemp}}°</i></div>
+            </h6>
+          </div>
+          <div class="wrimagecard-topimage_title">
+            <h6>Situação
+              <div class="pull-right badge"><i class="fa fa-cloud"> {{prev.situacaoTempo | lowercase}}</i></div>
+            </h6>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
